@@ -70,7 +70,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Build & Push
-        id: build-and-push-packages
+        id: build-and-push-ns-packages
         uses: docker/build-push-action@v6
         with:
           context: ./Dockerfile-NS
@@ -116,7 +116,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Build & Push
-        id: build-and-push-packages
+        id: build-and-push-ns-packages
         uses: docker/build-push-action@v6
         with:
           context: ./Dockerfile-NS
