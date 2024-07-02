@@ -10,7 +10,7 @@ RUN apk --no-cache update && apk --no-cache upgrade && \
     ssh-keyscan github.com >> ~/.ssh/known_hosts && \
     mkdir -p /var/cache/Cypress && chmod a+rwx /var/cache/Cypress && \
     npm install -g pnpm && \
-    npm install -g @ionic/cli native-run @capacitor/core
+    npm install -g nativescript
 
 # Check NPM test
 RUN npm --version
