@@ -69,6 +69,16 @@ jobs:
           labels: ${{ steps.meta-packages.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: Build & Push
+        id: build-and-push-packages
+        uses: docker/build-push-action@v6
+        with:
+          context: ./Dockerfile-NS
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta-packages.outputs.tags }}-ns
+          labels: ${{ steps.meta-packages.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   build-docker:
     if: ${{ github.event_name != 'pull_request' }}
@@ -102,6 +112,16 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-packages.outputs.tags }}
+          labels: ${{ steps.meta-packages.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Build & Push
+        id: build-and-push-packages
+        uses: docker/build-push-action@v6
+        with:
+          context: ./Dockerfile-NS
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta-packages.outputs.tags }}-ns
           labels: ${{ steps.meta-packages.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
