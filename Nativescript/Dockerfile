@@ -4,4 +4,4 @@ FROM ntj125app/npm-custom
 RUN npm install -g nativescript
 
 # Check NPM test
-RUN ns --version
+RUN ns --version && ns usage-reporting disable && ns error-reporting disable
