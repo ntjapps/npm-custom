@@ -1,4 +1,4 @@
-FROM ntj125app/npm-custom
+FROM ghcr.io/ntj125app/npm-custom
 
 # Install git
 RUN npm install -g nativescript
