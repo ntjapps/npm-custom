@@ -100,8 +100,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-packages.outputs.tags }}
           labels: ${{ steps.meta-packages.outputs.labels }}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache
-          cache-to: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache,mode=max
+          cache-from: type=registry,ref=docker.io/${{ github.repository }}:buildcache
+          cache-to: type=registry,ref=docker.io/${{ github.repository }}:buildcache,mode=max
       - name: Build & Push
         id: build-and-push-ns-packages
         uses: docker/build-push-action@v6
@@ -110,5 +110,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-packages.outputs.tags }}-ns
           labels: ${{ steps.meta-packages.outputs.labels }}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache
-          cache-to: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache,mode=max
+          cache-from: type=registry,ref=docker.io/${{ github.repository }}:buildcache
+          cache-to: type=registry,ref=docker.io/${{ github.repository }}:buildcache,mode=max
