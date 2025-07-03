@@ -9,7 +9,8 @@ RUN apk --no-cache update && apk --no-cache upgrade && \
     mkdir -p ~/.ssh && \
     ssh-keyscan github.com >> ~/.ssh/known_hosts && \
     mkdir -p /var/cache/Cypress && chmod a+rwx /var/cache/Cypress && \
-    npm install -g pnpm npm ng
+    npm install -g pnpm npm && \
+    npm install -g @vue/cli @angular/cli
 
 # Check NPM test
 RUN npm --version
