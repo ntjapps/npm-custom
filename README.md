@@ -11,4 +11,4 @@ License can be read in [LICENSE](https://github.com/ntjapps/npm-custom/blob/late
 
 # UPDATE
 
-7 Mei 2025
+27 Nov 2025
