@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v4
       - name: Setup Docker Buildx
@@ -51,16 +51,6 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-packages.outputs.tags }}
-          labels: ${{ steps.meta-packages.outputs.labels }}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache
-          cache-to: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache,mode=max
-      - name: Build & Push
-        id: build-and-push-ns-packages
-        uses: docker/build-push-action@v7
-        with:
-          context: ./Nativescript
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-packages.outputs.tags }}-ns
           labels: ${{ steps.meta-packages.outputs.labels }}
           cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache
           cache-to: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache,mode=max
